@@ -12,12 +12,16 @@
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
+      li {
+        list-style-type:none;
+      }
       #status {
         /* avoid an excessively wide status text */
-        white-space: pre;
+/*        white-space: pre;
         text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+        overflow: hidden;*/
+        width: 400px;
+        height: 200px;
       }
     </style>
 
@@ -31,7 +35,9 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="status"></div>
+    <div id="status">
+        <pre>Please wait</pre>
+    </div>
   </body>
 </html>
 
