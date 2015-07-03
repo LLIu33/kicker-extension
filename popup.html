@@ -1,44 +1,56 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Kicker Extension's Popup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      li {
-        list-style-type:none;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-/*        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;*/
-        width: 400px;
-        height: 200px;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="popup.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/popup.css">
+    <script src="scripts/date.format.js"></script>
+    <script src="scripts/popup.js"></script>
   </head>
   <body>
-    <div id="status">
-        <pre>Please wait</pre>
+  <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="well info">
+                    <h4>Please wait...</h4>
+                </div>
+                <div class="content-wrapper row">
+                </div>
+            </div>
+        </div>
+  </div>
+
+    <div class="templates">
+        <div class="tavern-block col-xs-12">
+            <div class="tavern-head row">
+                <div class="tavern-logo col-xs-3">
+                    <img src="">
+                </div>
+                <div class="tavern-title col-xs-6 text-center">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="user-block col-xs-12">
+            <div class="user-avatar col-xs-3">
+                <img src="">
+            </div>
+            <div class="user-name col-xs-6 text-center">
+                <span></span>
+            </div>
+            <div class="user-date col-xs-3 text-center">
+                <span></span>
+            </div>
+        </div>
     </div>
+
   </body>
 </html>
 

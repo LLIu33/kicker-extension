@@ -1,0 +1,28 @@
+{
+  "name": "kicker-extension",
+  "version": "0.0.1",
+  "description": "Extension for view info about kicker",
+  "main": "popup.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LLIu33/kicker-extension.git"
+  },
+  "keywords": [
+    "kicker",
+    "extension"
+  ],
+  "author": "Artem G. <artem@intspirit.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LLIu33/kicker-extension/issues"
+  },
+  "homepage": "https://github.com/LLIu33/kicker-extension#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "requirejs": "^2.1.18",
+    "underscore": "^1.8.3"
+  }
+}
