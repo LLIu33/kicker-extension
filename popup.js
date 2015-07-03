@@ -8,7 +8,7 @@ $(document).ready(function() {
             // WARNING! Might be evaluating an evil script!
             //var resp = eval("(" + xhr.responseText + ")");
             // $('status').text(xhr.responseText);
-            var target = $('#status pre');
+            var target = $('#status pre').text('');
             var result = JSON.parse(xhr.responseText);
             console.log(result);
             $.each(result.taverns, function(i, item) {
@@ -18,15 +18,15 @@ $(document).ready(function() {
                     var tavernInfo = $('' + 
                         '<div style="padding: 0 10px;">' +
                             '<img src="http://mytogo.ru' + item.logo + '" width=40 height=40 /> ' + 
-                            '<span>' + item.name + '</span>' + 
+                            '<span><b>' + item.name + '</b></span>' + 
                         '</div>'
                         );
                     tavernEl.append(tavernInfo);
 
                     if (item.usersInside.length > 0) {
-                        var userBlockEl = $('div');
+                        var userBlockEl = $('<div></div>');
                         userBlockEl.append('<h3>').text('Сейчас в заведении:');
-                        var userStr = $('<div>');
+                        var userStr = $('<div></div>');
                         $.each(item.usersInside, function() {
                             var el = this;
                             userStr.append(''+
@@ -41,9 +41,9 @@ $(document).ready(function() {
                     }
                     
                     if (item.usersPlanToPlay.length > 0) {
-                        var userPlanBlockEl = $('div');
+                        var userPlanBlockEl = $('<div></div>');
                         userPlanBlockEl.append('<h3>').text('Планируют быть:');
-                        var userPlanStr = $('<div>');
+                        var userPlanStr = $('<div></div>');
                         $.each(item.usersPlanToPlay, function() {
                             var el = this;
                             userPlanStr.append(''+
@@ -59,7 +59,6 @@ $(document).ready(function() {
                     }
                 }
             });
-        console.log(target.html());
         console.log($('#status'));
         }
     };
