@@ -1,13 +1,68 @@
 'use strict';
 /*global $ */
+$.fn.refreshMe = function(opts){
+      var $this = this,
+          defaults = {
+            ms:1500,
+            parentSelector:'.panel',
+            started:function(){},
+            completed:function(){}
+          },
+          settings = $.extend(defaults, opts);
+  
+      var par = this.parents(settings.parentSelector);
+      var panelToRefresh = par.find('.refresh-container');
+      var dataToRefresh = par.find('.info');
+      
+      var ms = settings.ms;
+      var started = settings.started;
+      var completed = settings.completed;
+      
+      $this.click(function(){
+        $this.addClass('fa-spin');
+        panelToRefresh.show();
+        if (dataToRefresh) {
+          started(dataToRefresh);
+        }
+        setTimeout(function(){
+          if (dataToRefresh) {
+              completed(dataToRefresh);
+          }
+          panelToRefresh.fadeOut(800);
+          $this.removeClass('fa-spin');
+        },ms);
+        return false;
+      });
+};
+
+var getNowStr = function() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd;
+    } 
+    if(mm<10){
+        mm='0'+mm;
+    } 
+    return dd+'/'+mm+'/'+yyyy;
+};
+
 $(document).ready(function() {
+    $('.refresh-button').refreshMe({
+        started: function(ele) { ele.html('Please wait...'); },
+        completed: function(ele) { ele.html('Data is was updated : ' + getNowStr()); },
+    });
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://kicker-parser.herokuapp.com/', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             // Hide "Please wait" string
             var infoBlock = $('.info').hide();
-            var target = $('.content-wrapper');
+            var target = $('.panel-body .row');
             var tavernTemplate = $('.templates .tavern-block');
             var userTemplate = $('.templates .user-block');
 
