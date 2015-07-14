@@ -6,7 +6,7 @@ $(document).ready(function() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             // Hide "Please wait" string
-            var infoBlock = $('.info.well').hide();
+            var infoBlock = $('.info').hide();
             var target = $('.content-wrapper');
             var tavernTemplate = $('.templates .tavern-block');
             var userTemplate = $('.templates .user-block');
@@ -18,12 +18,12 @@ $(document).ready(function() {
                     var tavernEl = tavernTemplate.clone();
                     tavernEl.appendTo(target);
                     tavernEl.find('.tavern-logo img').attr('src', 'http://mytogo.ru' + item.logo);
-                    tavernEl.find('.tavern-title span').text(item.name);
+                    tavernEl.find('.tavern-title h4 strong').text(item.name);
 
                     if (item.usersInside.length > 0) {
-                        var userEl = userTemplate.clone();
-                        userEl.appendTo(tavernEl);
                         $.each(item.usersInside, function() {
+                            var userEl = userTemplate.clone();
+                            userEl.appendTo(tavernEl);
                             var el = this;
                             userEl.find('.user-avatar img').attr('src', 'http://mytogo.ru' + el.avatar);
                             userEl.find('.user-name span').text(el.name);
@@ -32,14 +32,14 @@ $(document).ready(function() {
                     }
                     
                     if (item.usersPlanToPlay.length > 0) {
-                        var userPlanEl = userTemplate.clone();
-                        userPlanEl.appendTo(tavernEl);
                         $.each(item.usersPlanToPlay, function() {
+                            var userPlanEl = userTemplate.clone();
+                            userPlanEl.appendTo(tavernEl);
                             var el = this;
                             var dateOfPlan = new Date(el.dateOfPlan);
                             userPlanEl.find('.user-avatar img').attr('src', 'http://mytogo.ru' + el.avatar);
                             userPlanEl.find('.user-name span').text(el.name);
-                            userPlanEl.find('.user-date span').text(el.time + ' ' +  dateOfPlan.format('dd-m-yy'));
+                            userPlanEl.find('.user-date span').text(dateOfPlan.format('dd-m-yy' + ' / ' + el.time));
                         });
                     }
                 }

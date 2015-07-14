@@ -18,23 +18,22 @@ body {
 
 .tavern-block {
     border: 1px solid #999;
-    border-top: o none;
-    padding-bottom: 5px;
+    border-top: 0 none;
 }
 
 .user-block {
     padding-top: 5px;
+    border-bottom: 1px solid #eee;
 }
 
 .tavern-head {
     padding: 0 10px;
-    border-bottom: 1px solid #eee;
 }
 
 .tavern-logo img,
 .user-avatar img {
-    /*width: 40px;*/
     height: 40px;
+    padding: 5px 0;
 }
 
 .tavern-title {
