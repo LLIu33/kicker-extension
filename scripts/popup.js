@@ -12,7 +12,7 @@ $.fn.refreshMe = function(opts){
   
       var par = this.parents(settings.parentSelector);
       var panelToRefresh = par.find('.refresh-container');
-      var dataToRefresh = par.find('.info');
+      var dataToRefresh = par.find('.info h4');
       
       var ms = settings.ms;
       var started = settings.started;
