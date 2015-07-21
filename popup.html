@@ -4,39 +4,69 @@
 <head>
     <title>Kicker Extension's Popup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles/popup.css">
-    <script src="scripts/date.format.js"></script>
     <script src="scripts/micro-templating.js"></script>
-    <script src="scripts/refresh.jquery.js"></script>
     <script src="scripts/popup.js"></script>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
-                <div>
-                      <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#rostov" aria-controls="rostov" role="tab" data-toggle="tab" data-city="rostov">Ростов-на-Дону</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#tagan" aria-controls="tagan" role="tab" data-toggle="tab" data-city="tagan">Таганрог</a>
-                        </li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="rostov"></div>
-                        <div role="tabpanel" class="tab-pane" id="tagan"></div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#rostov" aria-controls="rostov" role="tab" data-toggle="tab" data-city="rostov">Ростов-на-Дону</a>
+            </li>
+            <li role="presentation">
+                <a href="#tagan" aria-controls="tagan" role="tab" data-toggle="tab" data-city="tagan">Таганрог</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="rostov">
+                <div class="content-block panel panel-default">
+                    <div class="panel-body panel-refresh">
+                        <div class="row"></div>
+                        <div class="refresh-container"><i class="refresh-spinner fa fa-spinner fa-spin fa-5x"></i></div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-1">
+                                    <a href="#" class="refresh-button" data-toggle="tooltip" title="Refresh">
+                                        <span class="fa fa-refresh"></span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-11">Updated: <span class="refresh-time"></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tagan">
+                <div class="content-block panel panel-default">
+                    <div class="panel-body panel-refresh">
+                        <div class="row"></div>
+                        <div class="refresh-container"><i class="refresh-spinner fa fa-spinner fa-spin fa-5x"></i></div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-1">
+                                    <a href="#" class="refresh-button" data-toggle="tooltip" title="Refresh">
+                                        <span class="fa fa-refresh"></span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-11">Updated: <span class="refresh-time"></span> </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,37 +74,14 @@
     </div>
 </body>
 
-<!-- Begin Panel template -->
-<script type="text/html" id="panel_tmpl">
-    <div class="content-block panel panel-default">
-        <div class="panel-body panel-refresh">
-            <div class="row">
-            </div>
-        </div>
-        <div class="panel-footer">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="col-xs-4">
-                        <a href="#" class="refresh-button">
-                            <span class="fa fa-refresh"></span>
-                        </a>
-                    </div>
-                    <div class="col-xs-4 info"><h4></h4></div>
-                    <div class="col-xs-4 refreshDate"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</script>
-
 <!-- Tavern template -->
 <script type="text/html" id="tavern_tmpl">
-    <div class="tavern-block col-xs-12">
-        <div class="tavern-head col-xs-12 bg-primary">
-            <div class="tavern-logo col-xs-3">
+    <div class="tavern-block col-xs-12  bg-primary">
+        <div class="tavern-head row">
+            <div class="tavern-logo col-xs-4">
                 <img src="<%=logo%>">
             </div>
-            <div class="tavern-title col-xs-6 text-center">
+            <div class="tavern-title col-xs-8">
                 <h4><strong><%=name%></strong></h4>
             </div>
         </div>
@@ -84,14 +91,16 @@
 <!-- User template -->
 <script type="text/html" id="user_tmpl">
         <div class="user-block col-xs-12">
-            <div class="user-avatar col-xs-3">
-                <img src="<%=avatar%>">
-            </div>
-            <div class="user-name col-xs-4 text-center">
-                <span><%=name%></span>
-            </div>
-            <div class="user-date col-xs-5 text-center">
-                <span><%=date%></span>
+            <div class="row">
+                <div class="user-avatar col-xs-2">
+                    <img src="<%=avatar%>">
+                </div>
+                <div class="user-name col-xs-5">
+                    <span><%=name%></span>
+                </div>
+                <div class="user-date col-xs-5">
+                    <span><%=date%> <b> <%=time%></b></span>
+                </div>
             </div>
         </div>
 </script>

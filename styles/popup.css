@@ -3,55 +3,93 @@ body {
     font-size: 14px;
 }
 
-.container-fluid {
-    width: 400px;
-    max-height: 400px;
+.nav.nav-tabs {
+    border-bottom: 0 none;
+    background-color: #f5f5f5;
 }
 
-.templates {
-    display: none;
+.nav.nav-tabs > li > a {
+    border: 0 none;
+}
+
+.nav.nav-tabs > li.active > a {
+    border: 0 none;
+    border-radius: 0;
+    background-color: #FFFFFF;
+}
+
+.container-fluid {
+    width: 400px;
+    /*height: 400px;*/
+    padding: 0;
+}
+
+.content-block {
+    margin-bottom: 0;
+    border: 0 none;
+    border-radius: 0;
+}
+
+.panel-refresh {
+    height: 250px;
+    position: relative;
+    overflow-y: auto;
 }
 
 .tavern-block {
     border: 1px solid #999;
-    border-top: 0 none;
 }
 
 .user-block {
-    padding-top: 5px;
-    border-bottom: 1px solid #eee;
+    /*border-bottom: 1px solid #eee;*/
 }
 
 .tavern-head {
-    padding: 0 10px;
+    margin: 5px 0;
+    color: #FFF0F5;
 }
 
-.tavern-logo img,
+.tavern-logo img {
+    height: 40px;
+    border: 1px solid #87CEFA;
+    background-color: #FFF0F5;
+    border-radius: 5px;
+    padding: 4px;
+}
+
 .user-avatar img {
     height: 40px;
-    padding: 5px 0;
+    padding: 2px 0;
 }
 
 .tavern-title {
-    line-height: 40px;
+    text-align: left;
+}
+
+.tavern-title,
+.user-name,
+.user-date {
+    line-height: 35px;
 }
 
 .panel-refresh {
-/*    height:250px;*/
-    position:relative;
+    position: relative;
+    padding: 0 15px;
 }
- 
+
+.panel-footer {
+    border: 0 none;
+}
+
 .refresh-container {
-    position:absolute;
-    top:0;
-    right:0;
-    background:rgba(200,200,200,0.25);
-    width:100%;
-    height:100%;
-    display: none;
-    text-align:center;
-    z-index:4;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 4;
 }
+
 .refresh-spinner {
     padding: 30px;
     opacity: 0.8;
