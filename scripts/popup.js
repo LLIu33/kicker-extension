@@ -37,7 +37,7 @@ var getData = function() {
     $.ajax({
         method: 'POST',
         // url: 'https://kicker-parser.herokuapp.com',
-        url: 'http://localhost:5000',
+        url: 'https://kicker-parser.herokuapp.com',
         data: { city: city },
         dataType: 'json'
     })
