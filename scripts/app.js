@@ -15,7 +15,7 @@
 
     that.Data = {
         getPlayers: function (city) {
-            return $.post(extensionConfig.url, {city: city});
+            return $.get(extensionConfig.url, {city: city});
         },
         preprocess: function(players) {
             players.taverns = $.map(players.taverns, function(tavern) {
