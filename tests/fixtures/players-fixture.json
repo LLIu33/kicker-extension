@@ -1,0 +1,44 @@
+{
+    "taverns": [{
+        "name": "Cow",
+        "logo": "http://mytogo.ru/images/mtg/korova.png",
+        "usersInside": [],
+        "usersPlanToPlay": [{
+            "name": "Artem",
+            "avatar": "http://mytogo.ru/templates/mytogotmp/ava/Shizzmini.jpg",
+            "date": "08-10-2015",
+            "time": "12:30"
+        }]
+    }, {
+        "name": "Ceshka",
+        "logo": "http://mytogo.ru/images/mtg/ceshka.png",
+        "usersInside": [],
+        "usersPlanToPlay": []
+    }, {
+        "name": "Harats",
+        "logo": "http://mytogo.ru/images/mtg/harats.png",
+        "usersInside": [],
+        "usersPlanToPlay": []
+    }, {
+        "name": "Komiks",
+        "logo": "http://mytogo.ru/images/mtg/komiks.png",
+        "usersInside": [],
+        "usersPlanToPlay": []
+    }, {
+        "name": "Bukovsky",
+        "logo": "http://mytogo.ru/images/mtg/bukovsky.png",
+        "usersInside": [],
+        "usersPlanToPlay": []
+    }, {
+        "name": "Piano bar",
+        "logo": "http://mytogo.ru/images/mtg/piano_bar.png",
+        "usersInside": [],
+        "usersPlanToPlay": []
+    }, {
+        "name": "Einstein",
+        "logo": "http://mytogo.ru/images/mtg/einstein.png",
+        "usersInside": [],
+        "usersPlanToPlay": []
+    }],
+    "time": "9/15/2015, 1:31:14 PM"
+}

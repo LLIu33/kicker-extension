@@ -16,8 +16,16 @@
 
     // extensionConfig
     that.Model = {
-        getPlayers: function (city) {
-            return $.get(extensionConfig.url, {city: city});
+        getPlayers: function (city, callback) {
+            $.ajax({
+                url: extensionConfig.url,
+                method: extensionConfig.method,
+                data: {city: city},
+                success: function (data) {
+                    // Node-style CPS: callback(err, data)
+                    callback(null, data);
+                }
+            });
         }
     };
 
@@ -88,7 +96,7 @@
 
     var refreshTaverns = function (city) {
         that.View.showLoader();
-        that.Model.getPlayers(city).done(function (players) {
+        that.Model.getPlayers(city, function (err, players) {
             players = that.helpers.preprocess(players);
             that.View.render(players);
             that.View.hideLoader();
